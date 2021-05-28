@@ -8,16 +8,16 @@ import UserInterface from 'assets/core-feature/UI.svg';
 import Tracking from 'assets/core-feature/tracking.svg';
 
 const data = {
-  subTitle: 'Core features',
-  title: 'Bringing grocery shopping into the 21st-century',
+  subTitle: 'PODSTAWOWE MOŻLIWOŚCI',
+  title: 'Przenosimy robienie zakupów do 21 wieku',
   features: [
     {
       id: 1,
       imgSrc: UserInterface,
       altText: 'Seamless',
-      title: 'Seamless UI',
+      title: 'Stabilny interfejs użytkownika',
       text:
-        'The app is so simple and easy to use groceries will be on their way to you in as little as three taps.',
+        'Aplikacja jest tak prosta I łatwa w obsłudze, że zakupy będą w drodze do Ciebie po zaledwie trzech kliknięciach.',
       animation: 'fade-left',
       delay: '200'
     },
@@ -25,9 +25,9 @@ const data = {
       id: 2,
       imgSrc: Tracking,
       altText: 'Real Time Tracking',
-      title: 'Real-Time Order Tracking',
+      title: 'Śledzenie zamówienia w czasie rzeczywistym',
       text:
-        'Track your order in real-time so you know exactly when it will be delivered.',
+        'Śledź Twoje zamówienie w czasie rzeczywistym, by wiedzieć dokładnie kiedy zostanie dostarczone.',
       animation: 'fade-left',
       delay: '250'
     },

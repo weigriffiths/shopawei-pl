@@ -11,30 +11,30 @@ const data = [
   {
     id: 1,
     imgSrc: Speed,
-    altText: 'Fast & Reliable',
-    title: 'Fast & Reliable',
+    altText: 'Szybko & Niezawodnie',
+    title: 'Szybko & Niezawodnie',
     text:
-      'We will deliver groceries to you in as little as 10 minutes. ',
+      'Dostarczymy do Ciebie zakupy w zaledwie 10 minut.',
     animation: "fade-up",
     delay: "500"
   },
   {
     id: 2,
     imgSrc: Money,
-    altText: 'Cost Saving',
-    title: 'Save Money',
+    altText: 'Oszczędzaj pieniądze',
+    title: 'Oszczędzaj pieniądze',
     text:
-      'We will minimise your grocery spending and guarantee the lowest prices.',
+      'Zminimalizujemy twoje wydatki i zagwarantujemy najniższe ceny.',
     animation: "fade-up",
     delay: "600"
   },
   {
     id: 3,
     imgSrc: Range,
-    altText: 'Product Selection',
-    title: 'Product Selection',
+    altText: 'Wybór produktów',
+    title: 'Wybór produktów',
     text:
-      'We aim to offer a supermarket-like range of products to select from.',
+      'Dążymy, by dostarczać jak najszerszą gamę produktów do wyboru',
     animation: "fade-up",
     delay: "700"
   },
@@ -46,8 +46,8 @@ export default function Promises() {
       <Container>
         <div data-aos="fade-up" data-aos-delay="300">
           <SectionHeader
-            slogan="On-Demand Grocery Delivery"
-            title="Our Promises To You"
+            slogan="DOSTARCZANIE ZAKUPÓW NA ŻYCZENIE"
+            title="Nasze obietnice dla Ciebie"
           />
         </div>
 

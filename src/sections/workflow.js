@@ -10,33 +10,33 @@ import ArrowEven from 'assets/arrowEven.png';
 const data = [
   {
     id: 1,
-    title: 'Shop',
+    title: 'Sklep',
     text:
-      'Shop for grocery items either by selecting what you want or going to your custom shopping list.',
+      'Kupuj produkty spożywcze przez wybranie czego chcesz lub dzięki swojej specjalnej liście zakupów.',
     animation: "fade-in",
     delay: "500"
   },
   {
     id: 2,
-    title: 'Checkout',
+    title: 'Kasa',
     text:
-      'Checkout easily with Visa, Mastercard, or digital wallet. We accept all forms of payment',
+      'Płać łatwo kartami Visa, Mastercard lub portfelem elektronicznym. Akceptujemy wszystkie formy płatności.',
     animation: "fade-in",
     delay: "600"
   },
   {
     id: 3,
-    title: 'Track',
+    title: 'Śledź',
     text:
-      'Track your order progress live. Watch the order as it goes from received to watching our riders deliver your order in real-time.',
+      'Śledź postęp swojego zamówienia. Obserwuj status zamówienie od momentu jego złożenia do czasu dostarczenia przez naszych kierowców w czasie rzeczywistym.',
     animation: "fade-in",
     delay: "700"
   },
   {
     id: 4,
-    title: 'Receive',
+    title: 'Odbieraj',
     text:
-      `Receive your order in as little as 10 minutes from our stores. Leave feedback on how we did to improve the service.
+      `Odbierz swoje zamówienie z naszych sklepów w zaledwie 10 minut. Oceń jak sobie poradziliśmy, abyśmy mogli dalej ulepszać usługę.
       `,
     animation: "fade-in",
     delay: "800"
@@ -49,8 +49,8 @@ export default function WorkFlow() {
       <Container>
         <div data-aos="fade-in">
           <SectionHeader
-            slogan="App Flow"
-            title="How does it work?"
+            slogan="PŁYNNOŚĆ APLIKACJI"
+            title="Jak to działa?"
             isWhite={true}
           />
         </div>

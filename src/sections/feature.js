@@ -15,9 +15,9 @@ const data = [
     id: 1,
     imgSrc: Custom,
     altText: 'Custom',
-    title: 'Custom Shopping List',
+    title: 'Dostosowana lista zakupów',
     text:
-      'Using enhanced artificial intelligence, we customise shopping lists for you.',
+      'Używając ulepszonej sztucznej inteligencji, dostosujemy listę zakupów dla Ciebie.',
     animation: 'fade-up',
     delay: "200"
   },
@@ -25,9 +25,9 @@ const data = [
     id: 2,
     imgSrc: Checkout,
     altText: 'Checkout',
-    title: 'Quick Checkout',
+    title: 'Szybka obsługa',
     text:
-      'In as little as three steps, you can checkout and have your groceries delivered straight to you.',
+      'W zaledwie trzech krokach zamówisz zakupy i zostaną one dostarczone prosto do Ciebie.',
     animation: 'fade-up',
     delay: "300"
   },
@@ -35,9 +35,9 @@ const data = [
     id: 3,
     imgSrc: Budget,
     altText: 'Budget',
-    title: 'Budget Tools',
+    title: 'Udogodnienia dla budżetu',
     text:
-      'Be in control of your data. Know exactly what you have spent on groceries and when with our budget breakdown tools.',
+      'Kontroluj swoje wydatki. Wiedz dokładnie ile i kiedy przeznaczyłeś na zakupy dzięki naszym monitorującym budżet narzędziom.',
     animation: 'fade-up',
     delay: "400"
   },
@@ -45,9 +45,9 @@ const data = [
     id: 4,
     imgSrc: Secure,
     altText: 'Secure',
-    title: 'Secure Payments',
+    title: 'Bezpieczne płatności',
     text:
-      'All of your data is encrypted with military grade AES-256 bit encryption. ',
+      'Wszystkie Twoje dane są zaszyfrowane wysokiej jakości szyfrem blokowym  AES-256, spełniającym standardy wojskowe. ',
     animation: 'fade-up',
     delay: "200"
   },
@@ -55,9 +55,9 @@ const data = [
     id: 5,
     imgSrc: Schedule,
     altText: 'Schedule',
-    title: 'Scheduled Deliveries',
+    title: 'Zaplanowane dostawy',
     text:
-      'You tell us what you want and when up to a month in advance.',
+      'Ty mówisz nam co i kiedy chcesz nawet z miesięcznym wyprzedzeniem.',
     animation: 'fade-up',
     delay: "300"
   },
@@ -65,9 +65,9 @@ const data = [
     id: 6,
     imgSrc: Chat,
     altText: 'Support',
-    title: 'Customer Support',
+    title: 'Wsparcie klienta',
     text:
-      'We are the future of grocery shopping and that starts with you. Easily chat with us whenever, wherever.',
+      'Jesteśmy przyszłością robienia zakupów i zaczyna się to od Ciebie. Łatwo się z nami kontaktuj gdziekolwiek, kiedykolwiek chcesz.',
     animation: 'fade-up',
     delay: "400"
   },
@@ -79,8 +79,8 @@ export default function Feature() {
       <Container>
         <div data-aos="fade-up">
           <SectionHeader
-            slogan="Quality features"
-            title="Features Designed For You"
+            slogan="CECHY JAKOŚCIOWE"
+            title="Właściwości zaprojektowane dla Ciebie"
           />
         </div>
 
