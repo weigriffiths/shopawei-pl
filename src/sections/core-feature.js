@@ -67,24 +67,6 @@ export default function CoreFeature() {
 }
 
 const styles = {
-  // coreFeature: {
-  //   py: [0, null, null, 2, null, 7],
-  //   position: 'relative',
-  //   '&::before': {
-  //     position: 'absolute',
-  //     content: '""',
-  //     top: ['auto', null, null, '50%'],
-  //     bottom: ['100px', 0, null, 'auto'],
-  //     left: 0,
-  //     background: 'linear-gradient(-157deg, #F6FAFD, #F9FCFC, #FCFDFC)',
-  //     height: [350, 550, '60%'],
-  //     width: '50%',
-  //     zIndex: -1,
-  //     borderTopRightRadius: '50%',
-  //     borderBottomRightRadius: '50%',
-  //     transform: ['translateY(0)', null, null, 'translateY(-50%)'],
-  //   },
-  // },
   containerBox: {
     display: 'flex',
     alignItems: 'center',
