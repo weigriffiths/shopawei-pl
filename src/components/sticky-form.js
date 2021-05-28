@@ -1,24 +1,27 @@
 /** @jsx jsx */
-import { jsx, Container, Flex, Box, Input, Button } from 'theme-ui';
+import { jsx, Container, Flex, Box, Input, Button, Text } from 'theme-ui';
 
 export default function StickyForm({ className }) {
   return (
     <>
+      <Text as="p" sx={styles.infoText} >
+        Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
+      </Text>
       <div sx={styles.stickyForm}>
-          <Box as="form" sx={styles.form}>
-            <Box as="label" htmlFor="subscribe" variant="styles.srOnly">
-              Get Invite
-            </Box>
-            <Input
-              name="subscribe"
-              id="subscribe"
-              placeholder="Email me when it's ready"
-              sx={styles.form.input}
-            />
-            <Button type="submit" variant="primary" sx={styles.inviteBtn} aria-label="Get Waitlist">
-              Join waitlist
-            </Button>
-            </Box>
+        <Box as="form" sx={styles.form}>
+          <Box as="label" htmlFor="subscribe" variant="styles.srOnly">
+            Powiadom mnie
+          </Box>
+          <Input
+            name="subscribe"
+            id="subscribe"
+            placeholder="Twój adres email..."
+            sx={styles.form.input}
+          />
+          <Button type="submit" variant="primary" sx={styles.inviteBtn} aria-label="Powiadom mnie">
+            Powiadom mnie
+          </Button>
+          </Box>
       </div>
     </>
   );
@@ -39,6 +42,12 @@ const styles = {
     color: '#000000',
     boxShadow: 'rgb(25 28 31 / 4%) 0px -8px 16px, rgb(25 28 31 / 4%) 0px 1px 0px',
     py: 3,
+  },
+  infoText: {
+    display: ['block', null, null, 'none'],
+    fontSize: '.65rem',
+    color: 'primary',
+    mb: '10px'
   },
   form: {
     zIndex:2,

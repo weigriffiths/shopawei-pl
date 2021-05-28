@@ -44,10 +44,10 @@ export default function Header({ className }) {
           <Button
             className="donate__btn"
             variant="secondary"
-            aria-label="Join waitlist"
+            aria-label="Powiadom mnie"
             onClick={goToForm}
           >
-            Join waitlist
+            Powiadom mnie
           </Button>
 
           <MobileDrawer />

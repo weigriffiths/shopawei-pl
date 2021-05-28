@@ -1,15 +1,15 @@
 export default [
   {
     path: 'home',
-    label: 'Home',
+    label: 'Strona główna',
   },
   {
     path: 'promises',
-    label: 'Promises',
+    label: 'Obietnice',
   },
   {
     path: 'features',
-    label: 'Features',
+    label: 'Możliwości',
   },
   {
     path: 'faq',

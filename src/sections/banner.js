@@ -9,25 +9,29 @@ export default function Banner() {
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox} data-aos="fade-right">
           <Heading as="h3" variant="heroPrimary">
-            Groceries delivered in <em>10 minutes</em>.
+            Zakupy dostarczamy w <em>10 minut</em>.
           </Heading>
           <Text as="p" variant="heroSecondary">
-            The ultimate shopping experience. We deliver groceries to you at your
-            convenience.
+            Gwarantowana satysfakcja z zakupów. Dostarczymy je do Ciebie ku Twojej wygodzie.
           </Text>
+          <Box data-aos="fade-right">
+            <Text as="p" sx={styles.banner.infoText} >
+              Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
+            </Text>
+          </Box>
           <Box as="form" sx={styles.banner.form} data-aos="fade-right">
               <Box as="label" htmlFor="subscribe" variant="styles.srOnly">
-                Get Invite
+                Powiadom mnie
               </Box>
               <Input
                 type="email"
                 name="subscribe"
                 id="subscribe"
-                placeholder="Email me when it's ready"
+                placeholder="Twój adres email..."
                 sx={styles.banner.form.input}
               />
-              <Button type="submit" variant="whiteButton" sx={styles.banner.form.button} aria-label="Join waitlist">
-                Join waitlist
+              <Button type="submit" variant="whiteButton" sx={styles.banner.form.button} aria-label="Powiadom mnie">
+                Powiadom mnie
               </Button>
             </Box>
         </Box>
@@ -86,6 +90,12 @@ const styles = {
       alignItems: 'flex-start',
       flexShrink: 0,
       pt: [0, null, null, null, null, null, 5, 7],
+    },
+    infoText: {
+      display: ['none', null, null, 'block'],
+      fontSize: '.65rem',
+      color: 'white',
+      mb: '10px'
     },
     imageBox: {
       display: ['block', null, null, 'block'],
