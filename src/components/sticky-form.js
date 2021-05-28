@@ -4,10 +4,11 @@ import { jsx, Container, Flex, Box, Input, Button, Text } from 'theme-ui';
 export default function StickyForm({ className }) {
   return (
     <>
-      <Text as="p" sx={styles.infoText} >
-        Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
-      </Text>
-      <div sx={styles.stickyForm}>
+      <div sx={styles.stickyBox}>
+        <Text as="p" sx={styles.infoText} >
+          Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
+        </Text>
+        <div sx={styles.stickyForm}>
         <Box as="form" sx={styles.form}>
           <Box as="label" htmlFor="subscribe" variant="styles.srOnly">
             Powiadom mnie
@@ -22,32 +23,35 @@ export default function StickyForm({ className }) {
             Powiadom mnie
           </Button>
           </Box>
+        </div>
       </div>
     </>
   );
 }
 
 const styles = {
-  stickyForm: {
+  stickyBox: {
     zIndex: 2000,
+    textAlign: 'center',
     position: 'fixed',
-    display: ['flex', null, null, null, 'none'],
-    justifyContent: 'center',
-    alignItems: 'center',
     bottom: 0,
     left: 0,
     width: '100%',
-    color: 'white',
     backgroundColor: 'background',
     color: '#000000',
     boxShadow: 'rgb(25 28 31 / 4%) 0px -8px 16px, rgb(25 28 31 / 4%) 0px 1px 0px',
-    py: 3,
+  },
+  stickyForm: {
+    display: ['flex', null, null, null, 'none'],
+    justifyContent: 'center',
+    alignItems: 'center',
+    pb: 3,
   },
   infoText: {
     display: ['block', null, null, 'none'],
     fontSize: '.65rem',
     color: 'primary',
-    mb: '10px'
+    my: 1
   },
   form: {
     zIndex:2,
