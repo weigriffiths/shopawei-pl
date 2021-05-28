@@ -59,6 +59,7 @@ export default function Banner() {
                 Get Invite
               </Box>
               <Input
+                type="email"
                 name="subscribe"
                 id="subscribe"
                 placeholder="Email me when it's ready"

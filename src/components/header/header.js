@@ -88,7 +88,6 @@ const styles = {
       ml: ['auto', null, null, null, 0],
     },
     '&.sticky': {
-      // display: ['none', null, null, null, 'block'],
       position: 'fixed',
       backgroundColor: 'background',
       color: '#000000',
@@ -124,7 +123,6 @@ const styles = {
       fontStyle: "Inter",
       fontSize: '16px',
       fontWeight: '500',
-      // textTransform: 'uppercase',
       px: 25,
       cursor: 'pointer',
       lineHeight: '1.2',
