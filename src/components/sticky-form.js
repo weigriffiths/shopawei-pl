@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Input, Button } from 'theme-ui';
-import { keyframes } from '@emotion/core';
-import { Link } from 'react-scroll';
 
 export default function StickyForm({ className }) {
   return (
@@ -17,17 +15,10 @@ export default function StickyForm({ className }) {
               placeholder="Email me when it's ready"
               sx={styles.form.input}
             />
-            <Button type="submit" variant="primary" sx={styles.inviteBtn} aria-label="Get Invite">
-              Get Invite
+            <Button type="submit" variant="primary" sx={styles.inviteBtn} aria-label="Get Waitlist">
+              Join waitlist
             </Button>
             </Box>
-          {/* <Button
-            className="donate__btn"
-            variant="secondary"
-            aria-label="Get Invite"
-          >
-            Get Invite
-          </Button> */}
       </div>
     </>
   );
