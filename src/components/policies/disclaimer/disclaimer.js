@@ -4,9 +4,8 @@ import SectionHeader from 'components/section-header';
 
 const content = 
   {
-    title: 'Disclaimer',
-    text: `All the information on this website is published in good faith and for general information and promotional purposes only. Shopawei is currently in development, so any information received on this website is likely to change in the future. Any action you take upon the information you find on this website (Shopawei), is strictly at your own risk. Shopawei will not be liable for any losses and/or damages in connection with the use of our website. 
-    `,
+    title: 'Wyłączenie odpowiedzialności',
+    text: `Wszystkie informacje zawarte na tej stronie, opublikowane są w dobrej wierze, w celach informacji ogólnej oraz w celach promocyjnych. Shapawei jest nadal w trakcie tworzenia, zatem informacje ukazane na tej stronie mogą ulec zmianie w przyszłości. Wszelkie decyzje podjęte na podstawie informacji zawartych na tej stronie (Shopawei), przez użytkownika strony, podejmowane są na wyłączną odpowiedzialność użytkownika. W żadnym wypadku Shopawei nie będzie odpowiedzialna za straty wynikające z korzystania lub niemożności korzystania z tej strony. `,
   };
 
 export default function Disclaimer() {

@@ -4,63 +4,50 @@ import SectionHeader from 'components/section-header';
 import Accordion from 'components/accordion/accordion';
 const faqs = [
   {
-    title: 'Is the app available now?',
+    title: 'Czy aplikacja jest już dostępna?',
     contents: (
       <div>
-        We are currently in pre-alpha, which means that the app is still in development. 
-        However, we aim to make the app available as soon as possible so that you can 
-        enjoy the full benefits of online grocery shopping. Stay tuned by email for updates! 🙂 
+        Jest obecnie w wersji roboczej, co znaczy, że aplikacja jest ciągle w budowie. Jednakże, dążymy by aplikacja była dostępna tak szybko, jak to tylko możliwe, abyście mogli cieszyć się pełnym zakresem korzyści, które niesie ze sobą robienie zakupów online. Sprawdzajcie pocztę e-mail by być na bieżąco! 🙂 
       </div>
     ),
   },
   {
-    title: 'Will this be available in my city?',
+    title: 'Czy usługa będzie dostępna w moim mieście?',
     contents: (
       <div>
-        We will be rolling out the app in selected cities in order to control the development 
-        of the app and give customers the best experience as possible. We care about customer
-        satisfaction and so we want our service to be fully ready for our customers when we 
-        launch.
+        Będziemy wypuszczać aplikację w wybranych miastach, aby sprawnie kontrolować jej rozwój i zapewnić naszym klientom jak najlepsze doświadczenie. Zależy nam na zadowoleniu naszych klientów dlatego chcemy, aby nasza usługa była w pełni gotowa już od samego początku.
       </div>
     ),
   },
   {
-    title: `What is on-demand grocery delivery?`,
+    title: `Czym jest dostarczanie zakupów na życzenie?`,
     contents: (
       <div>
-        On-demand grocery delivery is a service that aims to provide groceries to customers as 
-        fast as possible. It adopts a tech-first approach as opposed to the traditional supermarket
-        method of in-store shopping. We aim to revolutionise shopping by putting the customer first, saving 
-        you time and money by taking away the pain of shopping.
+        Dostarczanie zakupów na życzenie jest usługą, której celem jest dostarczanie zakupów do klienta tak szybko, jak to możliwe. Używa ona podejścia tech-first w przeciwieństwie do tradycyjnej metody robienia zakupów. Naszym celem jest zrewolucjonizowanie robienia zakupów dzięki postawieniu klienta na pierwszym miejscu, zaoszczędzeniu jego pieniędzy i czasu niwelując tym samym trudy związane z robieniem zakupów.
       </div>
     ),
   },
   {
-    title: `Why choose you?`,
+    title: `Dlaczego my?`,
     contents: (
       <div>
-        Like many people, we have found that grocery shopping is more of a chore than something we 
-        would like to do. There are many times when it is not convenient to go to the supermarket. 
-        For example, we are missing a key ingredient of a dish, or we are hosting a party and can't leave. 
-        Suddenly, going to the supermarket suddenly becomes a hassle. Wasting your time travelling and shopping 
-        made us realise that there had to be an easier, modern 21st-century approach. This is the idea of Shopawei.
+        Jak wiele osób uznaliśmy, że robienie zakupów jest bardziej przykrym obowiązkiem niż czymś co chcielibyśmy robić. Jest wiele sytuacji, w których zdecydowanie nie pasuje nam udać się do supermarketu. Na przykład, kiedy brakuje nam kluczowego składnika potrawy albo kiedy wydajemy przyjęcie i nie możemy opuścić gości. Niespodziewanie wyjście do supermarketu stało się kłopotem. Marnując czas na dojazd i robienie zakupów uznaliśmy, że musi istnieć łatwiejsze, współczesne podejście rodem z 21-go wieku. To jest właśnie idea Shopawei.
       </div>
     ),
   },
   {
-    title: `Is there a minimum spend?`,
+    title: `Czy jest jakaś minimalna kwota zakupu?`,
     contents: (
       <div>
-        There is currently no minimum spend.
+        Obecnie nie ma żadnej minimalnej kwoty zakupu.
       </div>
     ),
   },
   {
-    title: `Will there be any extra fees?`,
+    title: `Czy będą jakieś dodatkowe opłaty?`,
     contents: (
       <div>
-        In order to pay our riders and packers fairly for the amazing work they do, and keep up the high standard of service 
-        that we provide to you, we will be charging a flat service fee of 10zł. There will be no delivery fees. 
+        Aby dobrze opłacić naszych kierowców i osoby pakujące za wspaniałą pracę, jaką wykonują i aby utrzymać wysokie standardy naszej usługi, będziemy doliczać stałą opłatę w wysokości 10zł. Nie będzie opłaty za dowóz. 
       </div>
     ),
   },
@@ -72,7 +59,7 @@ export default function Faq() {
         <div data-aos="fade-up">
           <SectionHeader
             // slogan="Get "
-            title="Frequently Asked Questions"
+            title="Najczęściej zadawane pytania"
             data-aos="fade-up"
           />
         </div>
