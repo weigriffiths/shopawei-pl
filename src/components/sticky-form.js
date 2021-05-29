@@ -48,7 +48,7 @@ const styles = {
     pb: 3,
   },
   infoText: {
-    display: ['block', null, null, 'none'],
+    display: ['block', null, null, null, 'none'],
     fontSize: '.65rem',
     color: 'primary',
     my: 1
