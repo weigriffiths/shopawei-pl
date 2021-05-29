@@ -104,7 +104,7 @@ const styles = {
       zIndex: 1,
       ml: [0, null, null, 0, 0, 0, 0, 0],
       mr: [0, null, null, '-100px', '-80px', '-100px', '-100px', '0px'],
-      mt: ['-70px', '-100px', null, '-150px', '-200px', '-200px', '-200px'],
+      mt: ['-50px', '-70px', null, '-100px', '-150px', '-150px', '-100px'],
       mb: [0, null, null, null, '-45px', '-70px', '-150px', '0px'],
       overflow: 'hidden',
       textAlign: 'right',

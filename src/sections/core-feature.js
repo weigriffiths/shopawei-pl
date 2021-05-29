@@ -75,8 +75,8 @@ const styles = {
   },
   thumbnail: {
     transform: ['scale(0.9)',null,null,'scale(1)'],
-    mt: ['25rem', '25rem', null, '15rem', '12rem'],
-    mb: ['-35rem', null, null, '-20rem', '-20rem'],
+    mt: ['20rem', '25rem', null, '15rem', '12rem'],
+    mb: ['-25rem', null, null, '-20rem', '-20rem'],
     pl: [0, 0, 0, null, 7, 95],
     pr: [0, 0, null, null, null, 75, 95],
     order: [2, null, null, 0],
