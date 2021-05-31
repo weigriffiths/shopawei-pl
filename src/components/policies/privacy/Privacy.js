@@ -6,8 +6,15 @@ import BannerBG from 'assets/bannerBg.png';
 export default function Privacy() {
   return (
     <section sx={styles.banner} >
-      <Container sx={styles.heading}>
-        <Heading as="h3" variant="heroPrimary">Shopawei Privacy Policy</Heading>
+      <Container sx={styles.head}>
+        <Box>
+          <Heading as="h3" variant="heroPrimary">Shopawei Privacy Policy</Heading>
+        </Box>
+      </Container>
+      <Container sx={styles.doc}>
+        <Box>
+          
+        </Box>
       </Container>
     </section>
   );
@@ -24,7 +31,12 @@ const styles = {
     pb: ['150px', null, null, '130px', '150px', '150px', '150px'],
     backgroundColor: 'primary',
   },
-  heading: {
+  head: {
     textAlign: 'center',
+  },
+  doc: {
+    borderRadius: '1.5rem',
+    padding: '20px',
+
   }
 }
