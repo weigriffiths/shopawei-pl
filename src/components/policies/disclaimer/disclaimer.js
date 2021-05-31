@@ -15,7 +15,7 @@ export default function Disclaimer() {
         <h5 sx={styles.header}>{content.title}</h5>
         <p sx={styles.text}>{content.text}
           <span sx={styles.text}>
-            To see how we collect information from you, visit our <a href="/privacy" sx={styles.link}>Privacy Policy</a>
+          W celu uzyskania informacji o gromadzeniu przez naszą firmę danych osobowych, zapoznaj się z naszą <a href="/privacy" sx={styles.link}>Polityką Prywatności</a>
           </span>
         </p>
       </Container>
