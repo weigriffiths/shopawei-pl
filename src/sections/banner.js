@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { Container, Flex, Box, Heading, Input, Text, Image, Button } from 'theme-ui';
+import Subscribe from 'components/subscribe';
 import BannerThumb from 'assets/banner-thumb.png';
 
 export default function Banner() {
@@ -14,26 +15,7 @@ export default function Banner() {
           <Text as="p" variant="heroSecondary">
             Gwarantowana satysfakcja z zakupów. Dostarczymy je do Ciebie ku Twojej wygodzie.
           </Text>
-          <Box data-aos="fade-right">
-            <Text as="p" sx={styles.banner.infoText} >
-              Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
-            </Text>
-          </Box>
-          <Box as="form" sx={styles.banner.form} data-aos="fade-right">
-              <Box as="label" htmlFor="subscribe" variant="styles.srOnly">
-                Powiadom mnie
-              </Box>
-              <Input
-                type="email"
-                name="subscribe"
-                id="subscribe"
-                placeholder="Twój adres email..."
-                sx={styles.banner.form.input}
-              />
-              <Button type="submit" variant="whiteButton" sx={styles.banner.form.button} aria-label="Powiadom mnie">
-                Powiadom mnie
-              </Button>
-            </Box>
+          <Subscribe />
         </Box>
 
         <Box sx={styles.banner.imageBox}>

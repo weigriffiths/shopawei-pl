@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { useRef, useState } from 'react';
 import { jsx } from 'theme-ui';
-import { Flex, Button, Input } from 'theme-ui';
+import { Flex, Button, Input, Box, Text } from 'theme-ui';
 
 export default function Subscribe() {
   // 1. Create a reference to the input so we can fetch/clear it's value.
@@ -72,68 +72,104 @@ export default function Subscribe() {
   };
   return (
     <div className="subscribe__area">
+      {!status.submitted ? (
+        <Box data-aos="fade-right">
+          <Text as="p" sx={styles.infoText} >
+            Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
+          </Text>
+        </Box>
+      ) : (
+        null
+      )}
+      
       <form onSubmit={subscribe}>
-        <Flex sx={styles.subscribeForm}>
-          <label htmlFor="email" sx={{ variant: 'styles.srOnly' }}>
-            Email Address
-          </label>
-          <Input
-            ref={inputEl}
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Enter your email"
-          />
+        {!status.submitted ? (
+          <>
+            <Flex sx={styles.subscribeForm}>
+              <label htmlFor="email" sx={{ variant: 'styles.srOnly' }}>
+                Powiadom mnie
+              </label>
+              <Input
+                ref={inputEl}
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Twój adres email..."
+              />
 
-          <div>
-            {status.info.error && (
-              <div className="error">Error: {status.info.msg}</div>
-            )}
-            {!status.info.error && status.info.msg && (
-              <div className="success">{status.info.msg}</div>
-            )}
-          </div>
-          <Button
-            type="submit"
-            disabled={status.submitting}
-            variant="subscribeButton"
-          >
-            {!status.submitting
-              ? !status.submitted
-                ? 'Subscribe'
-                : 'Submitted'
-              : 'Submitting...'}
-          </Button>
-        </Flex>
+              <div>
+                {status.info.error && (
+                  <div className="error">Komunikat błędu: {status.info.msg}</div>
+                )}
+                {!status.info.error && status.info.msg && (
+                  <div className="success">{status.info.msg}</div>
+                )}
+              </div>
+              <Button
+                sx={styles.subButton}
+                type="submit"
+                disabled={status.submitting}
+                variant="whiteButton"
+                aria-label="Powiadom mnie"
+              >
+                Powiadom mnie
+              </Button>
+            </Flex>
+          </>
+        ) : (
+          <Box data-aos="fade">
+            <Text as="p" sx={styles.successText} >
+              Dziękujemy za zainteresowanie 😎, wkrótce otrzymasz od nas email.
+            </Text>
+          </Box>
+        )
+        }
+        
       </form>
     </div>
   );
 }
 
 const styles = {
+  infoText: {
+    display: ['none', null, null, 'block'],
+    fontSize: '.65rem',
+    color: 'white',
+    mb: '10px'
+  },
   subscribeForm: {
     width: '100%',
-    mx: 'auto',
+    mb: ['30px', null, null, null, null, '60px'],
+    zIndex:2,
+    display: ['none', null, null, 'flex'],
     '[type="email"]': {
-      border: '1px solid #D4DAE2',
-      borderRadius: '7px',
-      fontFamily: 'body',
-      fontSize: [1, 2, 3],
-      fontWeight: 'body',
-      color: 'heading',
-      py: 1,
-      px: [3, 5],
-      backgroundColor: 'transparent',
-      transition: 'all 0.25s',
-      height: ['50px', '60px'],
-      '&:focus': {
-        boxShadow: '0 0 0 0px',
-        borderColor: 'primary',
-      },
-      '::placeholder': {
-        color: '#9A9CB2',
-        opacity: 1,
-      },
-    },
+      borderRadius: ['4px'],
+      backgroundColor: 'white',
+      width: ['200px', '300px', null, null, '315px', null, '375px'],
+      height: ['40px', null, null, '45px', null, '50px', '55px'],
+      padding: ['0 15px', null, null, '0 25px'],
+      fontSize: [1, null, null, 2],
+      border: 'none',
+      outline: 'none',
+      boxShadow: '0px 10px 50px rgba(48, 98, 145, 0.08)',
   },
+  subButton: {
+    fontSize: ['12px', null, null, null, 2, '16px'],
+    padding: ['0 15px'],
+    ml: ['10px'],
+    width: ['90px', null, null, null, '180px'],
+  },
+  },
+  successText: {
+    color: 'tertiary',
+    fontSize: [2, 3, 4, '17px', 3, 3, 4, 4],
+    lineHeight: [2, null, null, null, 2.2],
+    fontWeight: 'body',
+  }
 };
+
+{/* {!status.submitting
+                ? !status.submitted
+                  ? 'Powiadom mnie'
+                  : 'Submitted'
+                : 'Submitting...'} */}
