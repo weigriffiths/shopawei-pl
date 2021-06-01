@@ -23,6 +23,7 @@ export default {
     muted: '#7B8188', // muted color
     accent: '#609', // a contrast color for emphasizing UI
     yellow: '#F6C416',
+    grey: '#f0f3f5', // grey colour
 
     // highlight	a background color for highlighting text
     modes: {
