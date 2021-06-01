@@ -17,7 +17,6 @@ export default function Banner() {
           </Text>
           <Subscribe />
         </Box>
-
         <Box sx={styles.banner.imageBox}>
           <Image src={BannerThumb} alt="banner" data-aos="fade" data-aos-delay="500"/>
         </Box>
