@@ -56,7 +56,7 @@ export default [
     header: '3. Hosting',
     info: [
       {
-        point: 'Serwis jest hostowany (technicznie utrzymywany) na serwera operatora: inna firma',
+        point: 'Serwis jest hostowany (technicznie utrzymywany) na serwera operatora: Salesforce.com, Inc.',
         extras: null
       },
     ],
