@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 export default function SEO({
-  description = 'Zakupy dostarczymy do Ciebie nawet w 10 min. Świeże produkty i specjalne oferty w zasięgu jednego kliknięcia.',
+  description = 'Zakupy dostarczymy do Ciebie nawet w 10 min lub zaplanuj na czas, który Ci odpowiada. Świeże produkty i specjalne oferty w zasięgu jednego kliknięcia.',
   author = 'Shopawei',
   meta,
   title = 'Shopawei - dostarczanie zakupów na życzenie',
