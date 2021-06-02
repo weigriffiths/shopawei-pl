@@ -2,10 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 
 export default function SEO({
-  description = 'Shopawei - On-demand grocery delivery',
+  description = 'Zakupy dostarczymy do Ciebie nawet w 10 min. Świeże produkty i specjalne oferty w zasięgu jednego kliknięcia.',
   author = 'Shopawei',
   meta,
-  title = 'Shopawei - On-demand grocery delivery',
+  title = 'Shopawei - dostarczanie zakupów na życzenie',
 }) {
   const metaData = [
     {
