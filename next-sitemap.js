@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://startup-app-modern.vercel.app',
+  siteUrl: process.env.SITE_URL || 'https://shopawei.pl',
   generateRobotsTxt: true,
   // optional
   // robotsTxtOptions: {
