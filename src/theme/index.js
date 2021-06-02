@@ -24,6 +24,7 @@ export default {
     accent: '#609', // a contrast color for emphasizing UI
     yellow: '#F6C416',
     grey: '#f0f3f5', // grey colour
+    error: '#ff002f', // error message color
 
     // highlight	a background color for highlighting text
     modes: {

@@ -11,9 +11,9 @@ export default async (req, res) => {
 
   try {
     // 3. Fetch the environment variables.
-    const LIST_ID = process.env.MAILCHIMP_LIST_ID; //5731324a36
-    const API_KEY = process.env.MAILCHIMP_API_KEY; // 1af674e6c92ffd26a97110eaa1c72cec-us4
-    // 4. API keys are in the form <key>-us3.
+    const LIST_ID = process.env.MAILCHIMP_LIST_ID; 
+    const API_KEY = process.env.MAILCHIMP_API_KEY; 
+    // 4. API keys are in the form <key>-us6.
     const DATACENTER = API_KEY.split('-')[1];
 
     // 5. The status of 'subscribed' is equivalent to a double opt-in.

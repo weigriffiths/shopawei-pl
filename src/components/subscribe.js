@@ -12,6 +12,7 @@ export default function Subscribe() {
     submitting: false,
     info: { error: false, msg: null },
   });
+
   const handleMailChimpResponse = (errorMsg, successMsg) => {
     if (errorMsg) {
       // 4. If there was an error, update the message in state.
@@ -28,30 +29,31 @@ export default function Subscribe() {
       submitting: false,
       info: { error: false, msg: successMsg },
     });
-    inputEl.current.value = '';
+    // inputEl.current.value = '';
   };
 
-  const handleSendGridResponse = (status, msg) => {
-    if (status === 200) {
-      // 5. Clear the input value and show a success message.
-      setStatus({
-        submitted: true,
-        submitting: false,
-        info: { error: false, msg: msg },
-      });
-      inputEl.current.value = '';
-    } else {
-      setStatus({
-        info: { error: true, msg: msg },
-      });
-    }
-  };
+  // const handleSendGridResponse = (status, msg) => {
+  //   if (status === 200) {
+  //     // 5. Clear the input value and show a success message.
+  //     setStatus({
+  //       submitted: true,
+  //       submitting: false,
+  //       info: { error: false, msg: msg },
+  //     });
+  //     inputEl.current.value = '';
+  //   } else {
+  //     setStatus({
+  //       info: { error: true, msg: msg },
+  //     });
+  //   }
+  // };
+
   const subscribe = async (e) => {
     e.preventDefault();
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 
     // 3. Send a request to our API with the user's email address.
-    const res = await fetch('/', {
+    const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
         email: inputEl.current.value,
       }),
@@ -67,24 +69,20 @@ export default function Subscribe() {
       'Success! 🎉 You are now subscribed to the newsletter.'
     );
     // For sendGrid integration
-    const text = await res.text();
-    handleSendGridResponse(res.status, text);
+    // const text = await res.text();
+    // handleSendGridResponse(res.status, text);
   };
+
   return (
     <div className="subscribe__area">
       {!status.submitted ? (
-        <Box data-aos="fade-right">
-          <Text as="p" sx={styles.infoText} >
-            Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
-          </Text>
-        </Box>
-      ) : (
-        null
-      )}
-      
-      <form onSubmit={subscribe}>
-        {!status.submitted ? (
-          <>
+        <>
+          <Box data-aos="fade-right">
+            <Text as="p" sx={styles.infoText} >
+              Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
+            </Text>
+          </Box>
+          <form onSubmit={subscribe}>
             <Flex sx={styles.subscribeForm}>
               <label htmlFor="email" sx={{ variant: 'styles.srOnly' }}>
                 Powiadom mnie
@@ -98,12 +96,6 @@ export default function Subscribe() {
               />
 
               <div>
-                {status.info.error && (
-                  <div className="error">Komunikat błędu: {status.info.msg}</div>
-                )}
-                {!status.info.error && status.info.msg && (
-                  <div className="success">{status.info.msg}</div>
-                )}
               </div>
               <Button
                 sx={styles.subButton}
@@ -115,17 +107,23 @@ export default function Subscribe() {
                 Powiadom mnie
               </Button>
             </Flex>
-          </>
-        ) : (
-          <Box data-aos="fade">
-            <Text as="p" sx={styles.successText} >
-              Dziękujemy za zainteresowanie 😎, wkrótce otrzymasz od nas email.
-            </Text>
+          </form>
+          <Box sx={styles.statusError}>
+            {status.info.error && (
+                <div className="error">Komunikat błędu: {status.info.msg}</div>
+              )}
+              {!status.info.error && status.info.msg && (
+                <div className="success">{status.info.msg}</div>
+            )}
           </Box>
-        )
-        }
-        
-      </form>
+        </>
+      ) : (
+        <Box data-aos="fade">
+          <Text as="p" sx={styles.successText} >
+            Dziękujemy za zainteresowanie 😎, wkrótce otrzymasz od nas email.
+          </Text>
+        </Box>
+      )}
     </div>
   );
 }
@@ -161,10 +159,17 @@ const styles = {
   },
   },
   successText: {
+    mt: '-30px',
     color: 'tertiary',
     fontSize: [2, 3, 4, '17px', 3, 3, 4, 4],
     lineHeight: [2, null, null, null, 2.2],
     fontWeight: 'body',
+  },
+  statusError: {
+    mt: '-7rem',
+    '.error': {
+      color: 'error'
+    }
   }
 };
 
