@@ -18,7 +18,7 @@ export default function IndexPage() {
       <StickyProvider>
         <Layout>
           <StickyForm />
-          <SEO title="Shopawei - The better way to shop" />
+          <SEO title="Shopawei - Zrób zakupy online" />
           <Banner />
           <Promises />
           <CoreFeature />
