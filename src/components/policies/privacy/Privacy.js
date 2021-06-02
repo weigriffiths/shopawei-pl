@@ -9,7 +9,7 @@ export default function Privacy() {
       <section sx={styles.policy}>
         <Container sx={styles.doc}>
           <Box sx={styles.doc.version}>
-            <Text as="p">Version 1.0 - 1 Jun 2021</Text>
+            <Text as="p">Wersja 1.0 - 1 Jun 2021</Text>
             <Heading sx={styles.doc.title}>Polityka Prywatności Shopawei</Heading>
             <Text as="h3" sx={styles.doc.subtitle}>Polityka prywatności opisuje zasady przetwarzania przez nas informacji na Twój temat, w tym danych osobowych oraz ciasteczek, czyli tzw. cookies.</Text>
           </Box>
