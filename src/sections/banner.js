@@ -10,7 +10,7 @@ export default function Banner() {
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox} data-aos="fade-right">
           <Heading as="h3" variant="heroPrimary">
-            Zakupy dostarczamy w <em>10 minut</em>.
+            Zakupy dostarczamy do Ciebie nawet w <em>10 minut</em>.
           </Heading>
           <Text as="p" variant="heroSecondary">
             Gwarantowana satysfakcja z zakupów. Dostarczymy je do Ciebie ku Twojej wygodzie.
