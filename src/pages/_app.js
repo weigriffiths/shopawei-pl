@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
+// Google Analytics
 import { initGA, logPageView } from 'analytics';
+
 // Fonts
 import "@fontsource/inter/500.css";
 import "@fontsource/ibm-plex-sans/400.css";
