@@ -1,50 +1,50 @@
-import fetch from 'isomorphic-unfetch';
+const mailchimp = require("@mailchimp/mailchimp_marketing");
+
+// 1. Fetch the environment variables.
+const LIST_ID = process.env.MAILCHIMP_LIST_ID; 
+const API_KEY = process.env.MAILCHIMP_API_KEY;
+// 2. API keys are in the form <key>-us6.
+const DATACENTER = API_KEY.split('-')[1];
+
+// 3. Set Config File for Mailchimp
+mailchimp.setConfig({
+  apiKey: API_KEY,
+  server: DATACENTER,
+});
 
 export default async (req, res) => {
-  // 1. Destructure the email address from the request body.
+  // TESTING MAILCHIMP SERVER 
+  // const response = await mailchimp.ping.get();
+  // console.log(response);
+  // 4. Destructure the email address from the request body.
   const { email } = req.body;
 
   if (!email) {
-    // 2. Throw an error if an email wasn't provided.
-    return res.status(400).json({ error: 'Email is required' });
+    // 5. Throw an error if an email wasn't provided.
+    return res.status(400).json({ error: 'E-mail jest potrzebny' });
   }
-
   try {
-    // 3. Fetch the environment variables.
-    const LIST_ID = process.env.MAILCHIMP_LIST_ID; 
-    const API_KEY = process.env.MAILCHIMP_API_KEY; 
-    // 4. API keys are in the form <key>-us6.
-    const DATACENTER = API_KEY.split('-')[1];
 
-    // 5. The status of 'subscribed' is equivalent to a double opt-in.
+    // 6. The status of 'subscribed' is equivalent to a double opt-in.
     const data = {
       email_address: email,
       status: 'subscribed',
     };
 
-    // 6. Send a POST request to Mailchimp.
-    const response = await fetch(
-      `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`,
-      {
-        body: JSON.stringify(data),
-        headers: {
-          Authorization: `apikey ${API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      }
-    );
-
+    const response = await mailchimp.lists.addListMember(LIST_ID, data);
+    
     // 7. Swallow any errors from Mailchimp and return a better error message.
     if (response.status >= 400) {
       return res.status(400).json({
-        error: `There was an error subscribing to the newsletter. Shoot me an email at [demo@demo.io] and I'll add you to the list.`,
+        error: `Wystąpił błąd podczas zapisywania się do newslettera. Aby się zarejestrować, wyślij e-mail na adres support@shopawei.pl.`,
       });
     }
 
     // 8. If we made it this far, it was a success! 🎉
-    return res.status(201).json({ error: '' });
+    return res.status(201).json({ success: 'email uploaded' });
+
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() });
   }
+  
 };
