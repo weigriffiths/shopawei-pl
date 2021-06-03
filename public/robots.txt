@@ -1,2 +1,9 @@
+# *
 User-agent: *
-Sitemap: https://example.io/sitemap.xml
+Allow: /
+
+# Host
+Host: https://shopawei.pl
+
+# Sitemaps
+Sitemap: https://shopawei.pl/sitemap.xml
