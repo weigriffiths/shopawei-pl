@@ -68,9 +68,10 @@ export default function Subscribe() {
       error,
       'Success! 🎉 You are now subscribed to the newsletter.'
     );
+    
     // For sendGrid integration
     // const text = await res.text();
-    // handleSendGridResponse(res.status, text);
+    // handleSendGridResponse(res.status, text); 
   };
 
   return (
