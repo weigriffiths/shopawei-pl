@@ -10,6 +10,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.0",
     "@fontsource/ibm-plex-sans": "^4.3.0",
     "@fontsource/inter": "^4.3.0",
     "@mailchimp/mailchimp_marketing": "^3.0.43",
