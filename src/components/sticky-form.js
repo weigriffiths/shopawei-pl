@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { useRef, useState } from 'react';
 import { jsx, Container, Flex, Box, Input, Button, Text } from 'theme-ui';
+import { Mixpanel } from 'analytics/mixpanel';
 
 export default function StickyForm({ className }) {
   // 1. Create a reference to the input so we can fetch/clear it's value.
@@ -51,25 +52,31 @@ export default function StickyForm({ className }) {
     e.preventDefault();
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     
-    // 3. Send a request to our API with the user's email address.
-    const res = await fetch('/api/subscribe', {
-      body: JSON.stringify({
-        email: inputEl.current.value,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
-    //for mailChimp integration
-    const { error } = await res.json();
-    handleMailChimpResponse(
-      error,
-      'Success! 🎉 You are now subscribed to the newsletter.'
-    );
-    // For sendGrid integration
-    // const text = await res.text();
-    // handleSendGridResponse(res.status, text);
+    try {
+      // 3. Send a request to our API with the user's email address.
+      const res = await fetch('/api/subscribe', {
+        body: JSON.stringify({
+          email: inputEl.current.value,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      });
+      //for mailChimp integration
+      const { error } = await res.json();
+      handleMailChimpResponse(
+        error,
+        'Success! 🎉 You are now subscribed to the newsletter.'
+      );
+      // For sendGrid integration
+      // const text = await res.text();
+      // handleSendGridResponse(res.status, text);
+      Mixpanel.track('Joined Waitlist');
+    } catch(e) {
+      Mixpanel.track('Unsuccessful Form Submission');
+    }
+    
   };
 
   return (
@@ -120,7 +127,7 @@ export default function StickyForm({ className }) {
         ) : (
           <Box>
             <Text as="p" sx={styles.successText} >
-              Dziękujemy za zainteresowanie 😎, wkrótce otrzymasz od nas email.
+              Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.
             </Text>
           </Box>
         )}
