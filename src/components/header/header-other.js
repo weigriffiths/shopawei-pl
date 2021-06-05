@@ -44,7 +44,7 @@ const positionAnim = keyframes`
 
 const styles = {
   logo:{
-    height: 'auto'
+    height: '38px'
   },
   header: {
     width: '100%',
@@ -56,8 +56,10 @@ const styles = {
   },
   container: {
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'space-between',
     '.join': {
+        fontSize: ['10px', null, null, '14px'],
         textDecoration: 'none',
         borderColor: 'none',
         backgroundColor:'primary',
