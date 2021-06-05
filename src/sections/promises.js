@@ -24,7 +24,7 @@ const data = [
     altText: 'Oszczędzaj pieniądze',
     title: 'Oszczędzaj pieniądze',
     text:
-      'Zminimalizujemy twoje wydatki i zagwarantujemy najniższe ceny.',
+      'Zminimalizujemy Twoje wydatki i zagwarantujemy najniższe ceny.',
     animation: "fade-up",
     delay: "600"
   },

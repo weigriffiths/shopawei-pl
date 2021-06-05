@@ -17,7 +17,7 @@ const data = {
       altText: 'Seamless',
       title: 'Stabilny interfejs użytkownika',
       text:
-        'Aplikacja jest tak prosta I łatwa w obsłudze, że zakupy będą w drodze do Ciebie po zaledwie trzech kliknięciach.',
+        'Aplikacja jest tak prosta i łatwa w obsłudze, że zakupy będą w drodze do Ciebie po zaledwie trzech kliknięciach.',
       animation: 'fade-left',
       delay: '200'
     },
