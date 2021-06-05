@@ -39,7 +39,7 @@ export default function CoreFeature() {
     <section id="features" sx={{variant: 'section.coreFeature'}}>
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-          <Image src={CoreFeatureThumb} alt="Thumbnail" className="rellax" data-rellax-speed="3"/>
+          <Image sx={styles.trackImage} src={CoreFeatureThumb} alt="Thumbnail" />
         </Box>
         <Box sx={styles.contentBox}>
           <Box sx={styles.headingTop}>
@@ -74,12 +74,14 @@ const styles = {
     flexDirection: ['column', null, null, 'row'],
   },
   thumbnail: {
-    transform: ['scale(0.9)',null,null,'scale(1)'],
-    mt: ['20rem', '25rem', null, '15rem', '12rem'],
-    mb: ['-25rem', null, null, '-20rem', '-20rem'],
     pl: [0, 0, 0, null, 7, 95],
     pr: [0, 0, null, null, null, 75, 95],
     order: [2, null, null, 0],
+  },
+  trackImage: {
+    transform: ['scale(1.1)',null,null,'scale(1.1)', 'scale(1.2)'],
+    // mt: ['30rem', '25rem', null, '15rem', '12rem'],
+    // mb: ['-25rem', null, null, '-20rem', '-20rem'],
   },
   contentBox: {
     width: ['100%', 450, 550, 350, 500, 570],

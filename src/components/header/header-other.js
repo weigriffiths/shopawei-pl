@@ -43,6 +43,9 @@ const positionAnim = keyframes`
 `;
 
 const styles = {
+  logo:{
+    height: 'auto'
+  },
   header: {
     width: '100%',
     position: 'fixed',
