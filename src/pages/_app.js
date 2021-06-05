@@ -3,6 +3,9 @@ import Router from 'next/router';
 // Google Analytics
 import { initGA, logPageView } from 'analytics';
 
+// Google Tag Manager
+import { GTMPageView } from 'utils';
+
 // Fonts
 import "@fontsource/inter/500.css";
 import "@fontsource/ibm-plex-sans/400.css";
@@ -26,7 +29,12 @@ export default function CustomApp({ Component, pageProps }) {
     AOS.init();
     initGA();
     logPageView();
-    Router.events.on('routeChangeComplete', logPageView);
+    // Router.events.on('routeChangeComplete', logPageView);
+    const handleRouteChange = () => GTMPageView(url);
+    Router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+        Router.events.off('routeChangeComplete', handleRouteChange);
+    };
   }, []);
 
   return <Component {...pageProps} />;
