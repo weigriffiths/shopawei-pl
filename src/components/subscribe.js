@@ -3,10 +3,24 @@ import { useRef, useState } from 'react';
 import { jsx } from 'theme-ui';
 import { Flex, Button, Input, Box, Text } from 'theme-ui';
 import { Mixpanel } from 'analytics/mixpanel';
+import { useForm } from 'react-hook-form';
+
+// Handle Error Message rendering
+const ErrorMessage = ({ message }) => {
+  return (<Text as="p" sx={styles.error}>{message}</Text>)
+}
+
+// Handle Success Message rendering
+const SuccessMessage = ({ message }) => {
+  return (<Text as="p" sx={styles.successText} >{message}</Text>)
+}
 
 export default function Subscribe() {
+  // 0. Utilise React Hook Form to reference input
+  const { handleSubmit, register, formState: { errors } } = useForm();
+
   // 1. Create a reference to the input so we can fetch/clear it's value.
-  const inputEl = useRef(null);
+  // const inputEl = useRef(null);
   // 2. Hold a status in state to handle the response from our API.
   const [status, setStatus] = useState({
     submitted: false,
@@ -24,13 +38,12 @@ export default function Subscribe() {
       return;
     }
 
-    // 5. Clear the input value and show a success message.
+    // 5. Show a success message.
     setStatus({
       submitted: true,
       submitting: false,
       info: { error: false, msg: successMsg },
     });
-    // inputEl.current.value = '';
   };
 
   // const handleSendGridResponse = (status, msg) => {
@@ -49,14 +62,15 @@ export default function Subscribe() {
   //   }
   // };
 
-  const subscribe = async (e) => {
-    e.preventDefault();
+  const subscribe = async (data) => {
+    // e.preventDefault();
+    // console.log(data.email)
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     try{
       // 3. Send a request to our API with the user's email address.
       const res = await fetch('/api/subscribe', {
         body: JSON.stringify({
-          email: inputEl.current.value,
+          email: data.email,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -69,9 +83,15 @@ export default function Subscribe() {
         error,
         'Success! 🎉 You are now subscribed to the newsletter.'
       );
-      Mixpanel.track('Joined Waitlist');
+
+      Mixpanel.track('Joined Waitlist', {
+        email: data.email,
+      });
+
     } catch(e) {
-      Mixpanel.track('Unsuccessful Form Submission');
+      Mixpanel.track('Unsuccessful Form Submission', {
+        error: e
+      });
     }
     
 
@@ -91,21 +111,23 @@ export default function Subscribe() {
               Wpisz swój adres email w polu poniżej, powiadomimy Cię, kiedy aplikacja będzie gotowa
             </Text>
           </Box>
-          <form onSubmit={subscribe}>
+          <form onSubmit={handleSubmit(subscribe)}>
             <Flex sx={styles.subscribeForm}>
               <label htmlFor="email" sx={{ variant: 'styles.srOnly' }}>
                 Powiadom mnie
               </label>
               <Input
-                ref={inputEl}
+                {...register('email', {
+                  required: "Proszę podać adres e-mail",
+                  pattern: {
+                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                    message: "Wprowadź aktualny adres Email"
+                  }
+                })}
                 id="email"
-                name="email"
                 type="email"
                 placeholder="Twój adres email..."
               />
-
-              <div>
-              </div>
               <Button
                 sx={styles.subButton}
                 type="submit"
@@ -117,21 +139,10 @@ export default function Subscribe() {
               </Button>
             </Flex>
           </form>
-          <Box sx={styles.statusError}>
-            {status.info.error && (
-                <div className="error">Komunikat błędu: {status.info.msg}</div>
-              )}
-              {!status.info.error && status.info.msg && (
-                <div className="success">{status.info.msg}</div>
-            )}
-          </Box>
+          {errors?.email && <ErrorMessage message={errors.email.message}/>}
         </>
       ) : (
-        <Box data-aos="fade">
-          <Text as="p" sx={styles.successText} >
-            Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.
-          </Text>
-        </Box>
+        <SuccessMessage message={'Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.'} />
       )}
     </div>
   );
@@ -179,6 +190,11 @@ const styles = {
     '.error': {
       color: 'error'
     }
+  },
+  error: {
+    color: 'error',
+    fontSize: '18px',
+    mt: -7
   }
 };
 

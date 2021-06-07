@@ -1,11 +1,25 @@
 /** @jsx jsx */
 import { useRef, useState } from 'react';
 import { jsx, Container, Flex, Box, Input, Button, Text } from 'theme-ui';
+import { useForm } from 'react-hook-form';
 import { Mixpanel } from 'analytics/mixpanel';
 
+// Handle Error Message rendering
+const ErrorMessage = ({ message }) => {
+  return (<Text as="p" sx={styles.error}>{message}</Text>)
+}
+
+// Handle Success Message rendering
+const SuccessMessage = ({ message }) => {
+  return (<Text as="p" sx={styles.successText} >{message}</Text>)
+}
+
 export default function StickyForm({ className }) {
+  // 0. Utilise React Hook Form to reference input
+  const { handleSubmit, register, formState: { errors } } = useForm();
+
   // 1. Create a reference to the input so we can fetch/clear it's value.
-  const inputEl = useRef(null);
+  // const inputEl = useRef(null);
   // 2. Hold a status in state to handle the response from our API.
   const [status, setStatus] = useState({
     submitted: false,
@@ -49,14 +63,14 @@ export default function StickyForm({ className }) {
   // };
 
   const subscribe = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    // console.log(data.email)
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
-    
-    try {
+    try{
       // 3. Send a request to our API with the user's email address.
       const res = await fetch('/api/subscribe', {
         body: JSON.stringify({
-          email: inputEl.current.value,
+          email: data.email,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -69,9 +83,6 @@ export default function StickyForm({ className }) {
         error,
         'Success! 🎉 You are now subscribed to the newsletter.'
       );
-      // For sendGrid integration
-      // const text = await res.text();
-      // handleSendGridResponse(res.status, text);
       Mixpanel.track('Joined Waitlist');
     } catch(e) {
       Mixpanel.track('Unsuccessful Form Submission');
@@ -89,16 +100,21 @@ export default function StickyForm({ className }) {
             </Text>
             <div sx={styles.stickyForm}>
               <Box sx={styles.form}>
-                <form onSubmit={subscribe}>
+                <form onSubmit={handleSubmit(subscribe)}>
                   <Flex sx={styles.subscribeForm}>
                     <label htmlFor="email" sx={{ variant: 'styles.srOnly' }}>
                       Powiadom mnie
                     </label>
                     <Input
+                      {...register('email', {
+                        required: "Proszę podać adres e-mail",
+                        pattern: {
+                          value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                          message: "Wprowadź aktualny adres Email"
+                        }
+                      })}
                       sx={styles.form.input}
-                      ref={inputEl}
                       id="email"
-                      name="email"
                       type="email"
                       placeholder="Twój adres email..."
                     />
@@ -115,21 +131,10 @@ export default function StickyForm({ className }) {
                 </form>
               </Box>
             </div>
-            <Box sx={styles.statusError}>
-              {status.info.error && (
-                  <div className="error">Komunikat błędu: {status.info.msg}</div>
-                )}
-                {!status.info.error && status.info.msg && (
-                  <div className="success">{status.info.msg}</div>
-              )}
-            </Box>
+            {errors?.email && <ErrorMessage message={errors.email.message}/>}
           </>
         ) : (
-          <Box>
-            <Text as="p" sx={styles.successText} >
-              Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.
-            </Text>
-          </Box>
+          <SuccessMessage message={'Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.'} />
         )}
         
         
@@ -207,11 +212,10 @@ const styles = {
     lineHeight: [2, null, null, null, 2.2],
     transition: 'opacity 1s'
   },
-  statusError: {
-    '.error': {
-      mt: '-10px',
-      color: 'error'
-    }
+  error: {
+    color: 'error',
+    fontSize: '16px',
+    mt: -2
   }
 }
 
