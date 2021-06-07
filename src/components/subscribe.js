@@ -12,7 +12,7 @@ const ErrorMessage = ({ message }) => {
 
 // Handle Success Message rendering
 const SuccessMessage = ({ message }) => {
-  return (<Text as="p" sx={styles.successText} >{message}</Text>)
+  return (<Text as="p" id="success-message" sx={styles.successText} >{message}</Text>)
 }
 
 export default function Subscribe() {
@@ -142,7 +142,7 @@ export default function Subscribe() {
           {errors?.email && <ErrorMessage message={errors.email.message}/>}
         </>
       ) : (
-        <SuccessMessage id="success-message" message={'Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.'} />
+        <SuccessMessage message={'Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.'} />
       )}
     </div>
   );
