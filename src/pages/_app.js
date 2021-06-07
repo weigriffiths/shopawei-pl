@@ -6,6 +6,9 @@ import { initGA, logPageView } from 'analytics';
 // Google Tag Manager
 import { GTMPageView } from 'utils';
 
+// Mixpanel
+import { Mixpanel } from 'analytics/mixpanel';
+
 // Fonts
 import "@fontsource/inter/500.css";
 import "@fontsource/ibm-plex-sans/400.css";
@@ -35,6 +38,7 @@ export default function CustomApp({ Component, pageProps }) {
     return () => {
         Router.events.off('routeChangeComplete', handleRouteChange);
     };
+    Mixpanel.track('Entered page');
   }, []);
 
   return <Component {...pageProps} />;
