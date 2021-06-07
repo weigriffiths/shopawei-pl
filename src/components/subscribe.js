@@ -192,9 +192,10 @@ const styles = {
     }
   },
   error: {
+    display: ['none', null, null, 'block'],
     color: 'error',
     fontSize: '18px',
-    mt: -7
+    mt: '-3.8rem'
   }
 };
 

@@ -217,6 +217,7 @@ const styles = {
     transition: 'opacity 1s'
   },
   error: {
+    display: ['block', null, null, null, 'none'],
     color: 'error',
     fontSize: '16px',
     mt: -2
