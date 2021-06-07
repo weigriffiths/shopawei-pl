@@ -138,7 +138,7 @@ export default function StickyForm({ className }) {
             {errors?.email && <ErrorMessage message={errors.email.message}/>}
           </>
         ) : (
-          <SuccessMessage message={'Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.'} />
+          <SuccessMessage id="success-message" message={'Dziękujemy za zainteresowanie 🎉, wkrótce otrzymasz od nas email.'} />
         )}
         
         
