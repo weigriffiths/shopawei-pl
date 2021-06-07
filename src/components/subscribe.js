@@ -195,7 +195,8 @@ const styles = {
     display: ['none', null, null, 'block'],
     color: 'error',
     fontSize: '18px',
-    mt: '-3.8rem'
+    // mt: '-3.8rem'
+    mt: [null, null, null, '-3.8rem', null, '-7rem']
   }
 };
 
