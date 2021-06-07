@@ -83,9 +83,13 @@ export default function StickyForm({ className }) {
         error,
         'Success! 🎉 You are now subscribed to the newsletter.'
       );
-      Mixpanel.track('Joined Waitlist');
+      Mixpanel.track('Joined Waitlist', {
+        email: data.email,
+      });
     } catch(e) {
-      Mixpanel.track('Unsuccessful Form Submission');
+      Mixpanel.track('Unsuccessful Form Submission', {
+        error: e
+      });
     }
     
   };
