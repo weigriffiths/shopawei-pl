@@ -62,7 +62,7 @@ export default function StickyForm({ className }) {
   //   }
   // };
 
-  const subscribe = async (e) => {
+  const subscribe = async (data) => {
     // e.preventDefault();
     // console.log(data.email)
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
@@ -118,7 +118,7 @@ export default function StickyForm({ className }) {
                         }
                       })}
                       sx={styles.form.input}
-                      id="email"
+                      id="email-sticky"
                       type="email"
                       placeholder="Twój adres email..."
                     />
