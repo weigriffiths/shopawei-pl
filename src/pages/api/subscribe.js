@@ -16,6 +16,7 @@ export default async (req, res) => {
   // TESTING MAILCHIMP SERVER 
   // const response = await mailchimp.ping.get();
   // console.log(response);
+  
   // 4. Destructure the email address from the request body.
   const { email } = req.body;
 
