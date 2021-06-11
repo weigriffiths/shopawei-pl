@@ -46,28 +46,30 @@ export default function Subscribe() {
     });
   };
 
-  // const handleSendGridResponse = (status, msg) => {
-  //   if (status === 200) {
-  //     // 5. Clear the input value and show a success message.
-  //     setStatus({
-  //       submitted: true,
-  //       submitting: false,
-  //       info: { error: false, msg: msg },
-  //     });
-  //     inputEl.current.value = '';
-  //   } else {
-  //     setStatus({
-  //       info: { error: true, msg: msg },
-  //     });
-  //   }
-  // };
+  const sendWelcomeEmail = async (email) => {
+    try{
+      // 5. Post request to our api
+      const newResponse = await fetch('/api/send-email', {
+        body: JSON.stringify({
+          email: email,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      });
+
+    } catch(e) {
+      console.log(e)
+    }
+  };
 
   const subscribe = async (data) => {
     // e.preventDefault();
     // console.log(data.email)
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     try{
-      // 3. Send a request to our API with the user's email address.
+      // 3. Send a request to our mailchimp/sendgrid API with the user's email address.
       const res = await fetch('/api/subscribe', {
         body: JSON.stringify({
           email: data.email,
@@ -77,6 +79,7 @@ export default function Subscribe() {
         },
         method: 'POST',
       });
+
       //for mailChimp integration
       const { error } = await res.json();
       handleMailChimpResponse(
@@ -84,22 +87,21 @@ export default function Subscribe() {
         'Success! 🎉 You are now subscribed to the newsletter.'
       );
 
-      Mixpanel.track('Joined Waitlist', {
-        email: data.email,
-      });
+      // 4. If successful send a request to sendgrid to send a welcome email
+      if(res.status === 200 || res.status === 201) {
+        sendWelcomeEmail(data.email);
+        Mixpanel.track('Joined Waitlist', {
+          email: data.email,
+        });
+      }
 
     } catch(e) {
+      console.log(e);
       Mixpanel.track('Unsuccessful Form Submission', {
         error: e
       });
     }
     
-
-
-    
-    // For sendGrid integration
-    // const text = await res.text();
-    // handleSendGridResponse(res.status, text); 
   };
 
   return (

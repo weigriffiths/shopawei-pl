@@ -1,51 +1,27 @@
 const sgMail = require('@sendgrid/mail');
 
-// export default async function (req, res) {
-//   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-//   const { email, message } = req.body;
-
-//   const content = {
-//     to: 'weilingriffiths@gmail.com',
-//     from: 'waitlist@shopawei.pl',
-//     subject: 'Sending with SendGrid is Fun',
-//     text: 'and easy to do anywhere, even with Node.js',
-//     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-//     // text: message,
-//     // html: `<p>${message}</p>`,
-//   };
-
-//   try {
-//     await sgMail.send(content);
-//     res.status(200).send('Message sent successfully.');
-//   } catch (error) {
-//     console.log('ERROR', error);
-//     res.status(400).send('Message not sent.');
-//   }
-// }
-
-
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// const { email, message } = req.body;
+export default async (req, res) => {
+  const { email } = req.body;
 
-const content = {
-  to: 'weilingriffiths@gmail.com',
-  from: 'waitlist@shopawei.pl',
-  subject: 'Sending with SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  // text: message,
-  // html: `<p>${message}</p>`,
-};
+  if (!email) {
+    // 5. Throw an error if an email wasn't provided.
+    return res.status(400).json({ error: 'E-mail jest potrzebny' });
+  }
 
-try {
-  sgMail.send(content).then(res => {
-    console.log(res)
-    // res.status(200).send('Message sent successfully.');
-  })
-  // res.status(200).send('Message sent successfully.');
-} catch (error) {
-  console.log('ERROR', error);
-  // res.status(400).send('Message not sent.');
+  try {
+    const message = {
+      to: email,
+      from: 'waitlist@shopawei.pl',
+      subject: 'Dzięki za dołączenie do nas 🎉 ',
+      text: 'Dziękujemy Ci za zainteresowanie Shopawei. Bardzo cenimy Twój czas, poświęcony wsparciu naszego biznesu.',
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      // text: message,
+      // html: `<p>${message}</p>`,
+    };
+
+  } catch(error) {
+    return res.status(500).json({ error: error.message || error.toString() });
+  }
 }
